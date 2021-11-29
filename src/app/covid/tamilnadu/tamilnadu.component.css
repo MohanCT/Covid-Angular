@@ -1,0 +1,27 @@
+select#selDistrictList {
+    background: #1e1e30;
+    color: #fff;
+    margin-left: 10px;
+    border-radius: 4px;
+}
+.chk-box-bed label {
+    margin-right: 15px;
+}
+.chk-box-bed input {
+    margin-right: 5px;
+    position: relative;
+    top: 1px;
+}
+li.none {
+    text-transform: capitalize;
+}
+span.dtr-data a {
+    color: #ff6d95 !important;
+}
+p.ccc-bed {
+    color: #fff;
+}
+p.ccc-bed span{
+    color: rgb(255, 109, 150);
+    font-weight: 600;
+}

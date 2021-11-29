@@ -1,0 +1,63 @@
+<div class="main-page-content">
+    <div class="dashboard-area">
+       <div class="container-fluid">
+         <h1 class="mb-2 font-20" style="text-align: center;">Tamil Nadu COVID Beds Availability Status</h1>
+         <br><br>
+        <label>Choose a District:</label>
+
+        <select (change)="getHospitalList($event)" id="selDistrictList" [(ngModel)]="selDist">
+            <ng-container *ngFor = "let district of districtList">
+                <option value={{district.id}}>{{district.districtName}}</option>
+            </ng-container>
+        </select>
+         <br>
+         <div class="chk-box-bed">
+         <input type="checkbox" id="normalBed" name="normalBed" [checked]="this.normalBed" (change)="this.normalBed = !this.normalBed;changeHospital()">
+         <label for="normalBed">Normal Bed</label>
+         <input type="checkbox" id="oxygenBed" name="oxygenBed" [checked]="this.oxygenBed" (change)="this.oxygenBed = !this.oxygenBed;changeHospital()">
+         <label for="oxygenBed">Oxygen Bed</label>
+         <input type="checkbox" id="icuBed" name="icuBed" [checked]="this.icuBed" (change)="this.icuBed = !this.icuBed;changeHospital()">
+         <label for="icuBed">ICU Bed</label><br>
+         <p class="ccc-bed"><span>CHO</span> - For Severe Cases &nbsp;&nbsp;<span>CHC</span> - For Moderate Cases &nbsp;&nbsp;<span>CCC</span> - For Mild Cases</p>
+      </div>
+          <div class="row">
+             <div class="col-lg-12 box-margin">
+                <div class="card code-table">
+                   <div class="card-body pb-0">
+                      <div
+                         class="card-header border-none bg-transparent d-flex align-items-center justify-content-between p-0 mb-30">
+                         <div class="widgets-card-title">
+                            <h2 class="card-title mb-0">Hospital List</h2>
+                         </div>
+                      </div>
+                      <div class="table-responsive">
+                         <!-- *ngIf="this.hospitalList && 
+                         this.hospitalList.length > 0 ; else chkTnHosList" -->
+                         <table class="table table-hover table-nowrap" id="tnHosList"></table>
+                         <!-- <ng-template #chkTnHosList><div class="spinner-border text-muted"></div></ng-template> -->
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+       <!-- Footer Area -->
+       <div class="container-fluid">
+        <div class="row">
+           <div class="col-lg-12">
+              <!-- Footer Area -->
+              <footer
+                 class="footer-area d-sm-flex justify-content-center align-items-center justify-content-between">
+                 <!-- Copywrite Text -->
+                 <div class="copywrite-text">
+                  <p class="font-13">Created by<span style="color:#fff;"><a href="mailto:spahan.covid@gmail.com">@Spahan.</a></span></p>
+               </div>
+                 <div class="fotter-icon text-center">
+                    <p class="mb-0 font-13">2021 @ Spahan. </p>
+                 </div>
+              </footer>
+           </div>
+        </div>
+     </div>
+    </div>
+ </div>

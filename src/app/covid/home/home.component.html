@@ -1,0 +1,334 @@
+<!-- Main Page Area -->
+<div class="main-page-content">
+    <div class="dashboard-area">
+       <div class="container-fluid">
+          <div class="row align-items-center mb-30">
+             <div class="col-12">
+                <div class="page-title-box d-flex align-items-center justify-content-between">
+                   <h1 class="mb-2 font-20">Global - COVID Tracker 19</h1>
+                </div>
+             </div>
+          </div>
+          <div class="row">
+             <!-- Category -->
+             <div class="col-lg-12">
+                <div class="row worldwide-stats">
+                   <div class="col-md-4">
+                      <div class="card mb-30 bg-primary">
+                         <div class="card-body">
+                            <div class="tracker-block__icon">
+                               <img src="assets/covid/img/bg-img/covid-case.png" alt="Covid case" loading="lazy"/>
+                            </div>
+                            <div class="corona-count-content">
+                               <h2 class="text-white">Coronavirus Cases</h2>
+                               <h2 class="text-white"
+                                  *ngIf="this.covidTotal.totalCases != '';else chkTotalCases"><span
+                                  class="cases-no infected">{{this.covidTotal?.totalCases.toLocaleString()}}</span>
+                               </h2>
+                               <ng-template #chkTotalCases><div class="spinner-border text-muted"></div>
+                               </ng-template>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                   <div class="col-md-4">
+                      <div class="card mb-30 bg-success">
+                         <div class="card-body">
+                            <div class="tracker-block__icon">
+                               <img src="assets/covid/img/bg-img/total-recover.png" alt="Total recovered" loading="lazy"/>
+                            </div>
+                            <div class="corona-count-content">
+                               <h2 class="text-white">Total Recovered</h2>
+                               <h2 class="text-white"
+                                  *ngIf="this.covidTotal.totalRecovered != '';else chkTotalRecovered"><span
+                                  class="cases-no recovered">{{this.covidTotal?.totalRecovered.toLocaleString()}}</span>
+                               </h2>
+                                <ng-template #chkTotalRecovered><div class="spinner-border text-muted"></div></ng-template>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                   <div class="col-md-4">
+                      <div class="card mb-30 bg-success color-3">
+                         <div class="card-body">
+                            <div class="tracker-block__icon">
+                               <img src="assets/covid/img/bg-img/today-case.png" alt="Today case" loading="lazy"/>
+                            </div>
+                            <div class="corona-count-content">
+                               <h2 class="text-white">Today Cases</h2>
+                               <h2 class="text-white"
+                                  *ngIf="this.covidTotal.totalNewCases != '';else chkNewCases"><span
+                                  class="cases-no recovered">{{this.covidTotal?.totalNewCases.toLocaleString()}}</span>
+                               </h2>
+                               <ng-template #chkNewCases><div class="spinner-border text-muted"></div></ng-template>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                   <div class="col-md-4">
+                      <div class="card mb-30 bg-danger">
+                         <div class="card-body">
+                            <div class="tracker-block__icon">
+                               <img src="assets/covid/img/bg-img/total-death.png" alt="Total Death" loading="lazy"/>
+                            </div>
+                            <div class="corona-count-content">
+                               <h2 class="text-white">Total Death</h2>
+                               <h2 class="text-white"
+                                  *ngIf="this.covidTotal.totalDeaths != '';else chkNewDeath"><span
+                                  class="cases-no deaths">{{this.covidTotal?.totalDeaths.toLocaleString()}}</span>
+                               </h2>
+                               <ng-template #chkNewDeath><div class="spinner-border text-muted"></div></ng-template>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                   <div class="col-md-4">
+                      <div class="card mb-30 bg-warning color-2">
+                         <div class="card-body">
+                            <div class="tracker-block__icon">
+                               <img src="assets/covid/img/bg-img/active-case.png" alt="Active case" loading="lazy"/>
+                            </div>
+                            <div class="corona-count-content">
+                               <h2 class="text-white">Active Cases</h2>
+                               <h2 class="text-white"
+                                  *ngIf="this.covidTotal.totalActiveCases != '';else chkTotalActive"><span
+                                  class="cases-no current_cases">{{this.covidTotal?.totalActiveCases.toLocaleString()}}</span>
+                               </h2>
+                               <ng-template #chkTotalActive><div class="spinner-border text-muted"></div></ng-template>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                   <div class="col-md-4">
+                      <div class="card mb-30 bg-success color-1">
+                         <div class="card-body">
+                            <div class="tracker-block__icon">
+                               <img src="assets/covid/img/bg-img/today-death.png" alt="Today death" loading="lazy"/>
+                            </div>
+                            <div class="corona-count-content">
+                               <h2 class="text-white">Today Death</h2>
+                               <h2 class="text-white"
+                                  *ngIf="this.covidTotal.totalNewDeaths != '';else chkTodayDeath"><span
+                                  class="cases-no recovered">{{this.covidTotal?.totalNewDeaths.toLocaleString()}}</span>
+                               </h2>
+                               <ng-template #chkTodayDeath><div class="spinner-border text-muted"></div></ng-template>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+               <div class="card box-margin">
+                  <div class="card-body">
+                     <h2 class="card-title">Detailed Country Report</h2>
+                     <div class="list-view table-responsive" id="list-view">
+                        <ul>
+                           <li><a href="country/India"><img style="width: 20px;"
+                              src="assets/img/flags/in.png" alt="India" loading="lazy"/>India
+                              <a href="tamilnadu">&nbsp;(TamilNadu Covid Bed)</a></a></li>
+                           <li><a href="country/US"><img style="width: 20px;"
+                              src="assets/img/flags/us.png" alt="USA" loading="lazy"/>USA</a></li>
+                           <li><a href="country/Australia"><img style="width: 20px;"
+                              src="assets/img/flags/au.png" alt="Australia" loading="lazy"/>Australia</a></li>
+                           <li><a href="country/Brazil"><img style="width: 20px;"
+                              src="assets/img/flags/br.png" alt="Brazil" loading="lazy"/>Brazil</a></li>
+                           <li><a href="country/Canada"><img style="width: 20px;"
+                              src="assets/img/flags/ca.png" alt="Canada" loading="lazy"/>Canada</a></li>
+                           <li><a href="country/China"><img style="width: 20px;"
+                              src="assets/img/flags/cn.png" alt="China" loading="lazy"/>China</a></li>
+                           <li><a href="country/Colombia"><img style="width: 20px;"
+                              src="assets/img/flags/co.png" alt="Colombia" loading="lazy"/>Colombia</a></li>
+                           <li><a href="country/Denmark"><img style="width: 20px;"
+                              src="assets/img/flags/dk.png" alt="Denmark" loading="lazy"/>Denmark</a></li>
+                           <li><a href="country/Germany"><img style="width: 20px;"
+                              src="assets/img/flags/de.png" alt="Germany" loading="lazy"/>Germany</a></li>
+                           <li><a href="country/Italy"><img style="width: 20px;"
+                              src="assets/img/flags/it.png" alt="Italy" loading="lazy"/>Italy</a></li>
+                           <li><a href="country/Netherlands"><img style="width: 20px;"
+                              src="assets/img/flags/nl.png" alt="Netherlands" loading="lazy"/>Netherlands</a></li>
+                          <!-- <li (click)="routeCountry('Chile')"><img style="width: 20px;"
+                              src="assets/img/flags/cl.png" alt="Chile">Chile</li> -->
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+          <div class="row">
+             <div class="col-lg-12 box-margin">
+                <div class="card code-table">
+                   <div class="card-body pb-0">
+                      <div
+                         class="card-header border-none bg-transparent d-flex align-items-center justify-content-between p-0 mb-30">
+                         <div class="widgets-card-title">
+                            <h2 class="card-title mb-0">COVID Tracker 19 Continent Wise</h2>
+                         </div>
+                      </div>
+                      <div class="table-responsive">
+                         <table class="table table-hover table-nowrap" id="continentList" *ngIf="this.covidContinent && 
+                            this.covidContinent.length > 0 ; else chkContinent">
+                            <thead>
+                               <tr>
+                                  <th>Continent</th>
+                                  <th>Total Cases</th>
+                                  <th>Total Recovered</th>
+                                  <th>Total Deaths</th>
+                                  <th>Active Cases</th>
+                                  <th>Critical</th>
+                                  <th>Tests</th>
+                                  <th>Today Cases</th>
+                                  <th>Today Recovered</th>
+                                  <th>Today Deaths</th>
+                                  <th>Population</th>
+                               </tr>
+                            </thead>
+                            <tbody>
+                               <tr *ngFor="let continent of covidContinent;let i = index">
+                                  <td>{{continent.continent}}</td>
+                                  <td>{{continent.totalCases.toLocaleString()}}</td>
+                                  <td>{{continent.totalRecovered.toLocaleString()}}</td>
+                                  <td>{{continent.totalDeaths.toLocaleString()}}</td>
+                                  <td>{{continent.totalActiveCases.toLocaleString()}}</td>
+                                  <td>{{continent.totalCritical.toLocaleString()}}</td>
+                                  <td>{{continent.totalTests.toLocaleString()}}</td>
+                                  <td>{{continent.todayCases.toLocaleString()}}</td>
+                                  <td>{{continent.todayRecovered.toLocaleString()}}</td>
+                                  <td>{{continent.todayDeaths.toLocaleString()}}</td>
+                                  <td>{{continent.population.toLocaleString()}}</td>
+                               </tr>
+                            </tbody>
+                         </table>
+                         <ng-template #chkContinent><div class="spinner-border text-muted"></div></ng-template>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-12">
+                <div class="card box-margin">
+                   <div class="card-body">
+                      <h2 class="card-title">COVID Tracker 19 Country Wise</h2>
+                      <div class="list-view table-responsive" id="list-view">
+                         <table class="list-view__table display table" id="countryList" *ngIf="this.covidCountryList && 
+                            this.covidCountryList.length > 0 ; else chkCountry">
+                            <thead class="list-view__head">
+                               <tr>
+                                  <th>Region</th>
+                                  <th>Total Cases</th>
+                                  <th>Total Recovered</th>
+                                  <th>Total Deaths</th>
+                                  <th>Active Cases</th>
+                                  <th>Total Critical</th>
+                                  <th>Today Cases</th>
+                                  <th>Today Deaths</th>
+                               </tr>
+                            </thead>
+                            <tbody class="list-view__body">
+                               <tr *ngFor="let topCountry of covidCountryList;let i = index">
+                                  <td>
+                                     <img src="assets/img/flags/{{topCountry.countryCode.toLowerCase()}}.png" alt="{{topCountry.countryName}}" loading="lazy"/>
+                                    {{topCountry.countryName}}</td>
+                                  <td>{{topCountry.totalCases.toLocaleString()}}</td>
+                                  <td>{{topCountry.totalRecovered !== 0 ?
+                                     topCountry.totalRecovered.toLocaleString() : ''}}
+                                  </td>
+                                  <td>{{topCountry.totalDeaths !== 0 ? topCountry.totalDeaths.toLocaleString()
+                                     : ''}}
+                                  </td>
+                                  <td>{{topCountry.totalActiveCases !== 0 ?
+                                     topCountry.totalActiveCases.toLocaleString() : ''}}
+                                  </td>
+                                  <td>{{topCountry.totalCritical !== 0 ?
+                                     topCountry.totalCritical.toLocaleString() : ''}}
+                                  </td>
+                                  <td>{{topCountry.todayCases !== 0 ? topCountry.todayCases.toLocaleString() :
+                                     ''}}
+                                  </td>
+                                  <td>{{topCountry.todayDeaths !== 0 ? topCountry.todayDeaths.toLocaleString()
+                                     : ''}}
+                                  </td>
+                               </tr>
+                            </tbody>
+                         </table>
+                         <ng-template #chkCountry><div class="spinner-border text-muted"></div></ng-template>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 box-margin">
+               <div class="card code-table">
+                  <div class="card-body pb-0">
+                     <div
+                        class="card-header border-none bg-transparent d-flex align-items-center justify-content-between p-0 mb-30">
+                        <div class="widgets-card-title">
+                           <h2 class="card-title mb-0"> Day Wise Vaccination Count in World</h2>
+                        </div>
+                     </div>
+                     <div class="table-responsive">
+                        <table class="table table-hover table-nowrap" id="globalVaccine" *ngIf="this.covidVaccine && 
+                        this.covidVaccine.length > 0 ; else chkGlobalVaccine">
+                           <thead>
+                              <tr>
+                                 <th>Date</th>
+                                 <th>Vaccination Count</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr *ngFor = "let vaccine of covidVaccine">
+                                 <td>{{convertDateFormat(vaccine.date)}}</td>
+                                 <td>{{vaccine.cases !== 0 ? vaccine?.vaccineCount.toLocaleString() : ''}}</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <ng-template #chkGlobalVaccine><div class="spinner-border text-muted"></div></ng-template>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-6">
+               <div class="box-margin">
+                  <div class="card">
+                     <div class="card-body">
+                        <div class="country-map">
+                           <div class="box-header">
+                              <h2 class="card-title">Cases by Country</h2>
+                           </div>
+                           <!-- <div *ngIf="this.covidCountryList && this.covidCountryList.length > 0;else chkCountryList"
+                              id="world-map" style="width: 600px; height: 400px"></div>
+                           <ng-template #chkCountryList><img src="assets/img/loading.gif" alt="Loader" />
+                           </ng-template> -->
+                           <div id="world-map" style="width: 600px; height: 400px"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+       </div>
+       <!-- Footer Area -->
+       <div class="container-fluid">
+          <div class="row">
+             <div class="col-12">
+                <!-- Footer Area -->
+                <footer
+                   class="footer-area d-sm-flex justify-content-center align-items-center justify-content-between">
+                   <!-- Copywrite Text -->
+                   <div class="copywrite-text">
+                      <p class="font-13">Created by<span style="color:#fff;"><a href="mailto:spahan.covid@gmail.com">@Spahan.</a></span></p>
+                   </div>
+                   <div class="fotter-icon text-center">
+                      <p class="mb-0 font-13">2021 @ Spahan.</p>
+                   </div>
+                </footer>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>

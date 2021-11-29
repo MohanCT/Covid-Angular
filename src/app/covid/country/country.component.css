@@ -1,0 +1,65 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700);
+
+body {
+    background: #00709a
+}
+
+#hovered-region,
+#clicked-region {
+    background: #01374d;
+    border: 1px solid #e5eabd;
+    color: #e4b045;
+    display: inline-block;
+    font: normal 10pt 'Ubuntu Mono';
+    margin-right: 3px;
+    padding: 4px 8px;
+    text-align: center;
+    width: 170px
+}
+
+#hovered-region span,
+#clicked-region span {
+    color: #e4e770;
+    font-weight: bold
+}
+
+#brazil-map {
+    margin: 10px auto;
+    height: 687px;
+    width: 780px
+}
+.head-da h2 {
+  font-size: 22px !important;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+@media only screen and (max-width : 1429px) {
+    .corona-count-content h4{
+      font-size:15px;
+    }
+    .row.worldwide-stats .card-body{
+      max-height:210px;
+    }
+    .corona-count-content h2{
+      font-size:17px !important;
+    }
+  }
+  h2{
+      font-size: 26px;
+  }
+
+  div#countryMap {
+    width: 100% !important;
+}
+h2 {
+  font-size: 22px!important;
+}
+
+h1{
+  line-height: 1.4;
+  color: #fff;
+  font-family: Poppins,sans-serif;
+  font-weight: 600;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
